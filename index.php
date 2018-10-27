@@ -13,9 +13,8 @@ function query($query) {
 		}
 		return $box;
 	}
-$students = query("SELECT * FROM user");	
+$students = query("SELECT * FROM user");
 ?>
-
 
 <html>
 	<head>
@@ -28,6 +27,7 @@ $students = query("SELECT * FROM user");
 	 			<td bgcolor="#D6D8DC" align="center">Username</td>
 	 			<td bgcolor="#D6D8DC" align="center">Level</td>
 	 			<td bgcolor="#D6D8DC" align="center">Fullname</td>
+	 			<td bgcolor="#D6D8DC" align="center">Action</td>
 	 		</tr>
 	 		<?php foreach($students as $student) : ?>
 				 <tr>
@@ -35,6 +35,11 @@ $students = query("SELECT * FROM user");
 				 	<td><?= $student["username"] ?></td>
 				 	<td><?= $student["level"] ?></td>
 				 	<td><?= $student["fullname"] ?></td>
+
+				 	<td>
+						<a  href="editt.php?Id=<?php echo $student['id'];?>">Edit</a> |
+						<a  href="del.php?Id=<?php echo $student['id']; ?>">Hapus</a>
+		  			</td>
 				 </tr>
 				<?php endforeach; ?>
 	 	</table>

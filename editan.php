@@ -9,10 +9,10 @@ $Username = $_POST['Username'];
 $Password = $_POST['Password'];
 $Level = $_POST['Level'];
 $Fullname = $_POST['Fullname'];
-$sql_insert= "INSERT INTO users VALUES ('$Id','$Username','$Password','$Level','$Fullname')";
-mysqli_query($conn, $sql_insert)or die(mysqli_error($conn));
+$sql_update=("UPDATE users SET Username='$Username', Password='$Password', Level='$Level', Fullname='$Fullname' WHERE Id='$Id'");
+mysqli_query($conn,$sql_update)or die(mysqli_error($conn));
 echo '<script>
-alert("Data Berhasil Disimpan");
-location="index.php?"
+alert("Data Berhasil Diedit");
+location="index.php"
 </script>';
 ?>
